@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Assistant Échecs</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>♟ Assistant Échecs</h1>
+    <p class="subtitle">Joue une vraie partie à côté de toi — l'appli te dit quoi jouer, tu lui dis ce que joue l'adversaire.</p>
+  </header>
+
+  <main class="app-main">
+
+    <section class="board-column">
+      <div id="board" class="board"></div>
+
+      <div id="promotion-modal" class="promotion-modal hidden">
+        <div class="promotion-box">
+          <p>Promotion du pion en :</p>
+          <div class="promotion-choices">
+            <button data-piece="q" class="promo-btn">♕</button>
+            <button data-piece="r" class="promo-btn">♖</button>
+            <button data-piece="b" class="promo-btn">♗</button>
+            <button data-piece="n" class="promo-btn">♘</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side-panel">
+
+      <div id="status-box" class="status-box">
+        <div id="turn-indicator" class="turn-indicator">—</div>
+        <div id="game-message" class="game-message"></div>
+      </div>
+
+      <div id="suggestion-box" class="suggestion-box hidden">
+        <h2>Coup suggéré</h2>
+        <div id="suggestion-text" class="suggestion-text">Réflexion…</div>
+        <button id="play-suggestion-btn" class="primary-btn" disabled>✅ J'ai joué ce coup</button>
+        <p class="hint">Ou clique directement le déplacement sur l'échiquier si tu joues autre chose.</p>
+      </div>
+
+      <div id="opponent-box" class="opponent-box hidden">
+        <h2>Au tour de l'adversaire</h2>
+        <p class="hint">Clique la pièce qu'il a déplacée, puis la case d'arrivée.</p>
+      </div>
+
+      <div class="controls">
+        <button id="undo-btn" class="secondary-btn">↶ Annuler le dernier coup</button>
+        <button id="new-game-btn" class="secondary-btn">🔄 Nouvelle partie</button>
+      </div>
+
+      <div class="history-panel">
+        <h2>Historique</h2>
+        <ol id="history-list" class="history-list"></ol>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <div id="start-screen" class="start-screen">
+    <div class="start-box">
+      <h1>♟ Assistant Échecs</h1>
+      <p>Choisis le côté que le robot joue pour toi. Tu joueras ce côté-là en vrai, en suivant ses suggestions ; tu rentreras les coups de l'adversaire sur l'autre couleur.</p>
+      <div class="start-choices">
+        <button id="choose-white-btn" class="primary-btn">Le robot joue les Blancs</button>
+        <button id="choose-black-btn" class="primary-btn">Le robot joue les Noirs</button>
+      </div>
+      <p id="engine-status" class="engine-status">Chargement du moteur…</p>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
